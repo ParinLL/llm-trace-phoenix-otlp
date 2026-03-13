@@ -2,11 +2,8 @@
   "name": "llm-trace-phoenix-otlp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
-  "scripts": {
-    "build": "tsc"
-  },
   "openclaw": {
     "extensions": [
       "./index.ts"
@@ -20,10 +17,7 @@
     "@opentelemetry/exporter-trace-otlp-grpc": "^0.213.0",
     "@opentelemetry/resources": "^2.6.0",
     "@opentelemetry/sdk-node": "^0.213.0",
-    "@opentelemetry/sdk-trace-node": "^2.6.0",
     "@opentelemetry/semantic-conventions": "^1.40.0",
-    "@types/node": "^25.5.0",
-    "openclaw": "^2026.3.11",
-    "typescript": "^5.9.3"
+    "openclaw": "^2026.3.11"
   }
 }
