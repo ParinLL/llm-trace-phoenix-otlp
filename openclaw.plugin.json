@@ -1,0 +1,33 @@
+{
+  "id": "llm-trace-phoenix-otlp",
+  "name": "LLM Trace → Phoenix (OTLP_gRPC)",
+  "description": "Send all LLM input/output traces natively via standard OTLP gRPC protocol to Arize Phoenix.",
+  "version": "1.0.0",
+  "kind": "integration",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "phoenixGrpcUrl": {
+        "type": "string",
+        "description": "Phoenix OTLP gRPC endpoint URL (default: http://localhost:4317)"
+      },
+      "projectName": {
+        "type": "string",
+        "description": "Phoenix project name to group traces under (default: openclaw)"
+      }
+    }
+  },
+  "uiHints": {
+    "phoenixGrpcUrl": {
+      "label": "Phoenix OTLP gRPC URL",
+      "placeholder": "http://localhost:4317",
+      "help": "Target URL of your Phoenix OTLP gRPC endpoint"
+    },
+    "projectName": {
+      "label": "Project Name",
+      "placeholder": "openclaw",
+      "help": "Project name shown in Phoenix UI for grouping traces"
+    }
+  }
+}
