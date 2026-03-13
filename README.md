@@ -42,6 +42,7 @@ services:
       - POSTGRES_DB=postgres
     volumes:
       - database_data:/var/lib/postgresql/data
+    restart: always
 
 volumes:
   database_data:
