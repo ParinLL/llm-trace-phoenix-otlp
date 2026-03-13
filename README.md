@@ -26,11 +26,12 @@ services:
     depends_on:
       - db
     ports:
-      - 6006:6006   # Phoenix UI
+      - 6006:6006   # Phoenix UI and Phoenix REST API Endpoint
       - 4317:4317   # OTLP gRPC
       - 4318:4318   # OTLP HTTP
     environment:
       - PHOENIX_SQL_DATABASE_URL=postgresql://postgres:<password>@db:5432/postgres
+    restart: always
 
   db:
     image: postgres:16
