@@ -1,5 +1,6 @@
 tsconfig.json
 .gitignore
+.claude/
 index.js
 index.d.ts
 *.js.map

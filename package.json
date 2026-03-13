@@ -1,6 +1,6 @@
 {
   "name": "llm-trace-phoenix-otlp",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "OpenClaw plugin — sends LLM input/output traces to Arize Phoenix via OpenTelemetry OTLP gRPC",
   "main": "index.ts",
   "type": "module",
@@ -30,6 +30,13 @@
     "@opentelemetry/sdk-node": "^0.213.0",
     "@opentelemetry/semantic-conventions": "^1.40.0"
   },
+  "bundledDependencies": [
+    "@opentelemetry/api",
+    "@opentelemetry/exporter-trace-otlp-grpc",
+    "@opentelemetry/resources",
+    "@opentelemetry/sdk-node",
+    "@opentelemetry/semantic-conventions"
+  ],
   "devDependencies": {
     "openclaw": "^2026.3.11"
   }
