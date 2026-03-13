@@ -9,10 +9,16 @@
       "./index.ts"
     ]
   },
-  "keywords": ["openclaw", "opentelemetry", "phoenix", "llm", "tracing"],
+  "keywords": [
+    "openclaw",
+    "opentelemetry",
+    "phoenix",
+    "llm",
+    "tracing"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ParinLL/llm-trace-phoenix-otlp.git"
+    "url": "git+https://github.com/ParinLL/llm-trace-phoenix-otlp.git"
   },
   "homepage": "https://github.com/ParinLL/llm-trace-phoenix-otlp#readme",
   "author": "ParinLL",
