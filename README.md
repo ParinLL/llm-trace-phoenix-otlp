@@ -53,6 +53,12 @@ openclaw plugins install ./path/to/llm-trace-phoenix-otlp
 
 No build step required — OpenClaw loads TypeScript directly at runtime.
 
+After installing or updating the plugin, restart the gateway to apply changes:
+
+```bash
+openclaw gateway restart
+```
+
 ## Configuration
 
 | Key | Default | Description |
