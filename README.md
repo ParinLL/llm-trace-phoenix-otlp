@@ -10,6 +10,47 @@ Project routing uses:
 - Resource attribute `openinference.project.name` (primary)
 - gRPC metadata header `x-phoenix-project-name` (fallback)
 
+## Prerequisites — Running Phoenix
+
+This plugin requires a running [Arize Phoenix](https://github.com/Arize-ai/phoenix) instance that accepts OTLP gRPC traces on port `4317`.
+
+The simplest way is Docker Compose with a Postgres backend:
+
+```yaml
+# compose.yaml
+services:
+  phoenix:
+    image: arizephoenix/phoenix:latest
+    depends_on:
+      - db
+    ports:
+      - 6006:6006   # Phoenix UI
+      - 4317:4317   # OTLP gRPC
+      - 4318:4318   # OTLP HTTP
+    environment:
+      - PHOENIX_SQL_DATABASE_URL=postgresql://postgres:<password>@db:5432/postgres
+
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=<password>
+      - POSTGRES_DB=postgres
+    volumes:
+      - database_data:/var/lib/postgresql/data
+
+volumes:
+  database_data:
+    driver: local
+```
+
+```bash
+docker compose up -d
+```
+
+Phoenix UI will be available at `http://localhost:6006`. The default `phoenixGrpcUrl` of `http://localhost:4317` matches this setup.
+
 ## Installation
 
 ```bash
