@@ -10,75 +10,32 @@ Project routing uses:
 - Resource attribute `openinference.project.name` (primary)
 - gRPC metadata header `x-phoenix-project-name` (fallback)
 
-## Configuration
-
-In `openclaw.json`:
-
-```json
-{
-  "plugins": {
-    "allow": ["llm-trace-phoenix-otlp"],
-    "entries": {
-      "llm-trace-phoenix-otlp": {
-        "enabled": true,
-        "config": {
-          "phoenixGrpcUrl": "http://localhost:4317",
-          "projectName": "my-project"
-        }
-      }
-    }
-  }
-}
-```
-
-| Key | Default | Description |
-|-----|---------|-------------|
-| `phoenixGrpcUrl` | `http://localhost:4317` | Phoenix OTLP gRPC endpoint |
-| `projectName` | `openclaw` | Project name shown in Phoenix UI |
-
-## Span attributes
-
-| Attribute | Description |
-|-----------|-------------|
-| `openinference.span.kind` | Always `LLM` |
-| `llm.model_name` | Model identifier |
-| `llm.provider` | Provider name |
-| `llm.input_messages` | Full message history as JSON |
-| `llm.output_messages` | Assistant response as JSON |
-| `llm.token_count.prompt` | Input tokens |
-| `llm.token_count.completion` | Output tokens |
-| `llm.token_count.total` | Total tokens |
-| `session.id` | OpenClaw session ID |
-| `tag.agent_id` | Agent ID (if applicable) |
-
 ## Installation
-
-All methods require enabling the plugin in `openclaw.json`:
-
-```json
-{
-  "plugins": {
-    "allow": ["llm-trace-phoenix-otlp"],
-    "entries": {
-      "llm-trace-phoenix-otlp": {
-        "enabled": true,
-        "config": {
-          "phoenixGrpcUrl": "http://localhost:4317",
-          "projectName": "my-project"
-        }
-      }
-    }
-  }
-}
-```
-
-### Via OpenClaw CLI (recommended)
 
 ```bash
 openclaw plugins install llm-trace-phoenix-otlp
 ```
 
-### Direct install (global)
+Then enable the plugin in `openclaw.json`:
+
+```json
+{
+  "plugins": {
+    "allow": ["llm-trace-phoenix-otlp"],
+    "entries": {
+      "llm-trace-phoenix-otlp": {
+        "enabled": true,
+        "config": {
+          "phoenixGrpcUrl": "http://localhost:4317",
+          "projectName": "my-project"
+        }
+      }
+    }
+  }
+}
+```
+
+### Direct install
 
 Clone into `~/.openclaw/extensions/` — OpenClaw discovers plugins there automatically:
 
@@ -95,6 +52,30 @@ openclaw plugins install ./path/to/llm-trace-phoenix-otlp
 ```
 
 No build step required — OpenClaw loads TypeScript directly at runtime.
+
+## Configuration
+
+| Key | Default | Description |
+|-----|---------|-------------|
+| `phoenixGrpcUrl` | `http://localhost:4317` | Phoenix OTLP gRPC endpoint |
+| `projectName` | `openclaw` | Project name shown in Phoenix UI |
+
+## Span attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| `openinference.span.kind` | Always `LLM` |
+| `llm.model_name` | Model identifier |
+| `llm.provider` | Provider name |
+| `input.value` | Full message history as JSON |
+| `llm.input_messages` | Full message history as JSON (alias) |
+| `output.value` | Assistant response text |
+| `llm.output_messages` | Assistant response as JSON (alias) |
+| `llm.token_count.prompt` | Input tokens |
+| `llm.token_count.completion` | Output tokens |
+| `llm.token_count.total` | Total tokens |
+| `session.id` | OpenClaw session ID |
+| `tag.agent_id` | Agent ID (if applicable) |
 
 ## Development
 
