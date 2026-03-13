@@ -1,7 +1,7 @@
 {
   "name": "llm-trace-phoenix-otlp",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "OpenClaw plugin — sends LLM input/output traces to Arize Phoenix via OpenTelemetry OTLP gRPC",
   "main": "index.ts",
   "type": "module",
   "openclaw": {
@@ -9,8 +9,13 @@
       "./index.ts"
     ]
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["openclaw", "opentelemetry", "phoenix", "llm", "tracing"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ParinLL/llm-trace-phoenix-otlp.git"
+  },
+  "homepage": "https://github.com/ParinLL/llm-trace-phoenix-otlp#readme",
+  "author": "ParinLL",
   "license": "ISC",
   "dependencies": {
     "@opentelemetry/api": "^1.9.0",
