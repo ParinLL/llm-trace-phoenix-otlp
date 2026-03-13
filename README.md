@@ -2,6 +2,8 @@
 
 OpenClaw plugin — sends all LLM input/output traces to [Arize Phoenix](https://phoenix.arize.com/) via **OpenTelemetry OTLP gRPC**.
 
+> Inspired by and rewritten from [pingshian0131/openclaw-plugin-llm-trace-phoenix](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix).
+
 ## How it works
 
 Hooks into `llm_input` and `llm_output` events. On input, opens an OTel span. On output, closes it with response data and token usage. Spans are batched and exported to Phoenix over gRPC.
