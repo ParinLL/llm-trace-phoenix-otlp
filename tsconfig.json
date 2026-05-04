@@ -2,6 +2,8 @@
   "compilerOptions": {
     "module": "nodenext",
     "target": "esnext",
+    "rootDir": ".",
+    "outDir": "./dist",
     "types": [],
     "sourceMap": true,
     "declaration": true,
@@ -15,5 +17,6 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true
-  }
+  },
+  "include": ["index.ts"]
 }
